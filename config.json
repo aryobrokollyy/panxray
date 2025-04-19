@@ -54,19 +54,19 @@
     ]
   },
   "inbounds": [
+    
     {
-      "tag": "VLESS_WS",
+      "tag": "TROJAN_WS",
       "listen": "127.0.0.1",
-      "port": 20651,
-      "protocol": "vless",
+      "port": 20653,
+      "protocol": "trojan",
       "settings": {
-        "clients": [],
-        "decryption": "none"
+        "clients": []
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/vless"
+          "path": "/trojan"
         },
         "security": "none"
       },
@@ -106,17 +106,18 @@
       }
     },
     {
-      "tag": "TROJAN_WS",
+      "tag": "VLESS_WS",
       "listen": "127.0.0.1",
-      "port": 20653,
-      "protocol": "trojan",
+      "port": 20651,
+      "protocol": "vless",
       "settings": {
-        "clients": []
+        "clients": [],
+        "decryption": "none"
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/trojan"
+          "path": "/vless"
         },
         "security": "none"
       },
@@ -147,86 +148,10 @@
        "streamSettings":{
           "network": "ws",
              "wsSettings": {
-               "path": "/ssws"
+               "path": "/ss"
            }
         }
-     },
-    {
-      "tag": "VLESS_HTTP_UPGRADE",
-      "listen": "127.0.0.1",
-      "port": 2021,
-      "protocol": "vless",
-      "settings": {
-        "clients": [],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "none",
-        "httpupgradeSettings": {
-          "path": "/vlesshu"
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "fakedns+others",
-          "http",
-          "tls",
-          "quic"
-        ]
-      }
-    },
-    {
-      "tag": "VMESS_HTTP_UPGRADE",
-      "listen": "127.0.0.1",
-      "port": 2022,
-      "protocol": "vmess",
-      "settings": {
-        "clients": []
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "none",
-        "httpupgradeSettings": {
-          "path": "/vmesshu"
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "fakedns+others",
-          "http",
-          "tls",
-          "quic"
-        ]
-      }
-    },
-    {
-      "tag": "TROJAN_HTTP_UPGRADE",
-      "listen": "127.0.0.1",
-      "port": 2023,
-      "protocol": "trojan",
-      "settings": {
-        "clients": []
-      },
-      "streamSettings": {
-        "network": "httpupgrade",
-        "security": "none",
-        "httpupgradeSettings": {
-          "path": "/trojanhu"
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "fakedns+others",
-          "http",
-          "tls",
-          "quic"
-        ]
-      }
-    },{
+     },{
 	  "tag": "TROJAN_GRPC",
 	  "listen": "127.0.0.1",
 	  "port": 4001,
@@ -302,7 +227,83 @@
 	    ],
 	    "routeOnly": true
 	  }
-}
+	},
+    {
+      "tag": "TROJAN_HTTP_UPGRADE",
+      "listen": "127.0.0.1",
+      "port": 2023,
+      "protocol": "trojan",
+      "settings": {
+        "clients": []
+      },
+      "streamSettings": {
+        "network": "httpupgrade",
+        "security": "none",
+        "httpupgradeSettings": {
+          "path": "/trojanhu"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "fakedns+others",
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "VMESS_HTTP_UPGRADE",
+      "listen": "127.0.0.1",
+      "port": 2022,
+      "protocol": "vmess",
+      "settings": {
+        "clients": []
+      },
+      "streamSettings": {
+        "network": "httpupgrade",
+        "security": "none",
+        "httpupgradeSettings": {
+          "path": "/vmesshu"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "fakedns+others",
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "VLESS_HTTP_UPGRADE",
+      "listen": "127.0.0.1",
+      "port": 2021,
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "httpupgrade",
+        "security": "none",
+        "httpupgradeSettings": {
+          "path": "/vlesshu"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "fakedns+others",
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    }
   ],
   "outbounds": [
     {
