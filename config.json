@@ -226,56 +226,31 @@
           "quic"
         ]
       }
-    },
-      {
-            "tag": "VMESSGPRC_INBOUND",
-            "listen": "127.0.0.1",
-            "port": "50024",
-           "protocol": "vmess",
-            "settings": {
-                  "clients": []
-             },
-             "streamSettings":{
-               "network": "grpc",
-                  "grpcSettings": {
-                      "serviceName": "vmess-grpc"
-                }
-              }
-           },
-    {
-            "tag": "VLESSGPRC_INBOUND",
-            "listen": "127.0.0.1",
-            "port": "50023",
-            "protocol": "vless",
-            "settings": {
-             "clients": [],
-             "decryption":"none"
-               
-           },
-              "streamSettings":{
-                 "network": "grpc",
-                 "grpcSettings": {
-                    "serviceName": "vless-grpc"
-               }
-            }
-         },
-    {
-            "tag": "TROJANGPRC_INBOUND",
-            "listen": "127.0.0.1",
-            "port": "50025",
-            "protocol": "trojan",
-            "settings": {
-              "clients": [],
-              "decryption":"none"
-                 
-            },
-             "streamSettings":{
-             "network": "grpc",
-               "grpcSettings": {
-                   "serviceName": "trojan-grpc"
-             }
-          }
-         }
+    },{
+	  "tag": "TROJAN_GRPC",
+	  "listen": "127.0.0.1",
+	  "port": 4001,
+	  "protocol": "trojan",
+	  "settings": {
+	    "clients": []
+	  },
+	  "streamSettings": {
+	    "network": "grpc",
+	    "security": "none",
+	    "grpcSettings": {
+	      "serviceName": "trojan-grpc"
+	    }
+	  },
+	  "sniffing": {
+	    "enabled": true,
+	    "destOverride": [
+	      "fakedns+others",
+	      "http",
+	      "tls",
+	      "quic"
+	    ]
+	  }
+	}
   ],
   "outbounds": [
     {
