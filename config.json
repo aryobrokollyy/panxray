@@ -250,7 +250,59 @@
 	      "quic"
 	    ]
 	  }
-	}
+	},{
+	  "tag": "VMESS_GRPC",
+	  "listen": "127.0.0.1",
+	  "port": 4002,
+	  "protocol": "vmess",
+	  "settings": {
+	    "clients": []
+	  },
+	  "streamSettings": {
+	    "network": "grpc",
+	    "grpcSettings": {
+	      "serviceName": "vmess-grpc"
+	    },
+	    "security": "none"
+	  },
+	  "sniffing": {
+	    "enabled": true,
+	    "destOverride": [
+	      "fakedns+others",
+	      "http",
+	      "tls",
+	      "quic"
+	    ],
+	    "routeOnly": true
+	  }
+	},
+	{
+	  "tag": "VLESS_GRPC",
+	  "listen": "127.0.0.1",
+	  "port": 4003,
+	  "protocol": "vless",
+	  "settings": {
+	    "clients": [],
+	    "decryption": "none"
+	  },
+	  "streamSettings": {
+	    "network": "grpc",
+	    "grpcSettings": {
+	      "serviceName": "vless-grpc"
+	    },
+	    "security": "none"
+	  },
+	  "sniffing": {
+	    "enabled": true,
+	    "destOverride": [
+	      "fakedns+others",
+	      "http",
+	      "tls",
+	      "quic"
+	    ],
+	    "routeOnly": true
+	  }
+}
   ],
   "outbounds": [
     {
