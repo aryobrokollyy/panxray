@@ -80,6 +80,31 @@
       }
     },
     {
+      "tag": "VMESS_WS",
+      "listen": "127.0.0.1",
+      "port": 20652,
+      "protocol": "vmess",
+      "settings": {
+        "clients": []
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/vmess"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "fakedns+others",
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
       "tag": "VLESS_WS",
       "listen": "127.0.0.1",
       "port": 20651,
@@ -94,31 +119,6 @@
           "path": "/vless"
         },
         "security": "none"
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "fakedns+others",
-          "http",
-          "tls",
-          "quic"
-        ]
-      }
-    },
-    {
-      "tag": "VMESS_WS",
-      "listen": "127.0.0.1",
-      "port": 20652,
-      "protocol": "vmess",
-      "settings": {
-        "clients": []
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/vmess"
-        }
       },
       "sniffing": {
         "enabled": true,
