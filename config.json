@@ -148,7 +148,7 @@
        "streamSettings":{
           "network": "ws",
              "wsSettings": {
-               "path": "/ss"
+               "path": "/ssws"
            }
         }
      },{
